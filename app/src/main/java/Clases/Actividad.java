@@ -1,7 +1,10 @@
 package Clases;
 
+import android.text.Editable;
 import android.util.EventLogTags;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -10,18 +13,26 @@ import java.util.Date;
 public class Actividad {
     private long ActividadId;
     private String Descripcion;
-    private boolean Estado;
+    private int Estado;
     private Date FechaInicio;
     private Date FechaFin;
 
     public Actividad(){};
 
-    public Actividad(long actividadId, String descripcion, boolean estado, Date fechaInicio, Date fechaFin) {
+    public Actividad(long actividadId, String descripcion, int estado, Date fechaInicio, Date fechaFin) {
         ActividadId = actividadId;
         Descripcion = descripcion;
-        Estado = estado;
+        Estado = 1;
         FechaInicio = fechaInicio;
-        FechaFin = fechaFin;
+        FechaFin = null;
+    }
+
+    public Actividad(String descripcion) {
+        ActividadId = 1;
+        Descripcion = descripcion;
+        Estado = 1;
+        FechaInicio = new Date();
+        FechaFin = null;
     }
 
     public long getActividadId() {
@@ -40,11 +51,11 @@ public class Actividad {
         Descripcion = descripcion;
     }
 
-    public boolean isEstado() {
+    public int getEstado() {
         return Estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(int estado) {
         Estado = estado;
     }
 
